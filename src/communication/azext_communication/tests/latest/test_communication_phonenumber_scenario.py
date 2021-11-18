@@ -7,8 +7,6 @@ class CommunicationPhonenumberScenarios(ScenarioTest):
     @ResourceGroupPreparer(name_prefix='clitestcommunication_MyResourceGroup'[:7], key='rg', parameter_name='rg')
     @CommunicationResourcePreparer(resource_group_parameter_name='rg')
     def test_list_phonenumbers(self, communication_resource_info):
-        print("------self.is_live--------")
-        print(self.is_live)
         if self.is_live:
             get_new_phonenumber(communication_resource_info[1])
             os.environ['AZURE_COMMUNICATION_CONNECTION_STRING'] = communication_resource_info[1]
@@ -21,8 +19,6 @@ class CommunicationPhonenumberScenarios(ScenarioTest):
     @CommunicationResourcePreparer(resource_group_parameter_name='rg')
     def test_show_phonenumbers(self, communication_resource_info):
         phonenumber = get_test_source_phonenumber(self.is_live)
-        print("------self.is_live--------")
-        print(self.is_live)
         if phonenumber is None:
             phonenumber = get_new_phonenumber(communication_resource_info[1])
 
