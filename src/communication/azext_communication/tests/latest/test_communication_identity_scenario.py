@@ -6,7 +6,7 @@ class CommunicationIdentityScenarios(ScenarioTest):
 
     @ResourceGroupPreparer(name_prefix='clitestcommunication_MyResourceGroup'[:7], key='rg', parameter_name='rg')
     @CommunicationResourcePreparer(resource_group_parameter_name='rg')
-    def test_issue_access_token(self, rg, communication_resource_info):
+    def test_issue_access_token(self, communication_resource_info):
         
         if self.is_live:
             os.environ['AZURE_COMMUNICATION_CONNECTION_STRING'] = communication_resource_info[1]
